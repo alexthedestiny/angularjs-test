@@ -1,0 +1,16 @@
+<div class="container">
+  <h2>Reddit Search</h2>
+  <div class="inner-addon right-addon">
+    <i class="glyphicon glyphicon-search fa fa-search"></i>
+    <input type="text" class="form-control" placeholder="Type topic" ng-model="searchPictures"/>
+  </div>
+  <div class="row">
+    <div class="wrapping-card col-lg-4 col-md-4 col-sm-12 col-xs-12" ng-repeat="item in previewPaginationData | filter:{title:searchPictures} track by $index">
+      <img class="" width="100%" height="100%" src="{{item.thumbnail}}" alt="{{item.title}}">
+      <a target="_blank" href="{{item.url}}">
+        <span class="cover-text">{{item.title}}</span>
+      </a>
+    </div>
+  </div>
+  <ul uib-pagination total-items="previewData.length" ng-model="currentPage" ng-change="pageChanged()"></ul>
+</div>
